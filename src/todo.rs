@@ -1,9 +1,9 @@
 use crate::error::TodoResult;
+use ansi_term::Style;
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeSet;
 use std::fs;
 use std::path::Path;
-use ansi_term::Style;
 
 #[derive(Serialize, Deserialize)]
 pub struct TodoItem {
@@ -26,7 +26,12 @@ impl TodoItem {
         let mut result = String::new();
         for (ii, e) in self.dependencies.iter().enumerate() {
             if ansi && list.by_id(*e).unwrap().done {
-                write!(result, "{}", Style::new().strikethrough().paint(&format!("#{}", e))).unwrap();
+                write!(
+                    result,
+                    "{}",
+                    Style::new().strikethrough().paint(&format!("#{}", e))
+                )
+                .unwrap();
             } else {
                 write!(result, "#{}", e).unwrap();
             }
@@ -103,7 +108,7 @@ impl TodoList {
         let index = self.todos.iter().position(|item| item.id == id);
         if let Some(index) = index {
             Some(self.todos.remove(index))
-        } else  {
+        } else {
             None
         }
     }

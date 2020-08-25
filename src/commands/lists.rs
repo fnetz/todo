@@ -5,8 +5,7 @@ impl Command for Lists {
     const NAME: &'static str = "lists";
 
     fn subcommand<'a, 'b>() -> App<'a, 'b> {
-        SubCommand::with_name(Self::NAME)
-            .about("Lists all Todo lists")
+        SubCommand::with_name(Self::NAME).about("Lists all Todo lists")
     }
 
     fn invoke(app: &AppContext, _matches: &ArgMatches) -> TodoResult<()> {

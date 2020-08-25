@@ -1,6 +1,6 @@
 use super::prelude::*;
 use clap::value_t;
-use std::io::{self, stdin, stdout, Write, BufRead};
+use std::io::{self, stdin, stdout, BufRead, Write};
 
 pub struct Remove;
 impl Command for Remove {
@@ -42,7 +42,7 @@ fn read_confirmation() -> io::Result<bool> {
             l => {
                 print!("Invalid answer '{}', enter [y/N]: ", l);
                 stdout().flush()?;
-                continue
+                continue;
             }
         }
     }

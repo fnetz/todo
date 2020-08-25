@@ -42,7 +42,7 @@ pub fn edit_item(item: &mut TodoItem) -> TodoResult<()> {
         .stdin(Stdio::null())
         .status()?;
     if !status.success() {
-        return Err(TodoError::EditorExitCode(status))
+        return Err(TodoError::EditorExitCode(status));
     }
 
     {
