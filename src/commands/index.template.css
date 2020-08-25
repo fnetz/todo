@@ -1,0 +1,7 @@
+body {
+	font-family: sans-serif;
+}
+
+.list-item.done {
+	text-decoration: line-through;
+}

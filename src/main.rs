@@ -17,6 +17,7 @@ fn invoke_command(app: &AppContext, matches: &ArgMatches) -> TodoResult<()> {
     let matches = matches.unwrap();
     let invoke = match name {
         cmd::New::NAME => cmd::New::invoke,
+        cmd::Export::NAME => cmd::Export::invoke,
         cmd::Lists::NAME => cmd::Lists::invoke,
         cmd::Add::NAME => cmd::Add::invoke,
         cmd::List::NAME => cmd::List::invoke,
@@ -49,6 +50,7 @@ fn main() {
     let commands = vec![
         cmd::New::subcommand(),
         cmd::Lists::subcommand(),
+        cmd::Export::subcommand(),
         cmd::Add::subcommand(),
         cmd::List::subcommand(),
         cmd::Show::subcommand(),
