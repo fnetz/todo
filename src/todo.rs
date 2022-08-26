@@ -5,7 +5,7 @@ use std::collections::BTreeSet;
 use std::fs;
 use std::path::Path;
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Default)]
 pub struct TodoItem {
     pub id: u32,
     pub title: String,
@@ -40,20 +40,6 @@ impl TodoItem {
             }
         }
         result
-    }
-}
-
-impl Default for TodoItem {
-    fn default() -> Self {
-        Self {
-            id: 0,
-            title: String::new(),
-            text: String::new(),
-            done: false,
-            priority: 0,
-            dependencies: BTreeSet::new(),
-            parent: None,
-        }
     }
 }
 

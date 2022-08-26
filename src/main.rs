@@ -33,12 +33,12 @@ fn invoke_command(app: &AppContext, matches: &ArgMatches) -> TodoResult<()> {
         cmd::Remove::NAME => cmd::Remove::invoke,
         _ => unreachable!("Internal error: Command {} should be handled", name),
     };
-    invoke(app, &matches)
+    invoke(app, matches)
 }
 
 #[cfg(windows)]
 fn enable_ansi() -> Result<(), u32> {
-    ansi_term::enable_ansi_support();
+    ansi_term::enable_ansi_support()
 }
 
 #[cfg(not(windows))]

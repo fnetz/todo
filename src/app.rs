@@ -42,10 +42,10 @@ impl AppContext {
     }
 
     pub fn current_path(&self) -> TodoResult<Option<PathBuf>> {
-        Ok(self
+        self
             .get_current_todo_name()?
             .map(|name| self.path_for(name))
-            .transpose()?)
+            .transpose()
     }
 
     pub fn set_current_todo_name(&self, name: &str) -> TodoResult<()> {
@@ -56,7 +56,7 @@ impl AppContext {
 
     pub fn try_load_current(&self) -> TodoResult<TodoList> {
         let current_path = self.current_path()?.ok_or(TodoError::NoActiveList)?;
-        Ok(TodoList::read_from(current_path)?)
+        TodoList::read_from(current_path)
     }
 
     pub fn write_current(&self, list: &TodoList) -> TodoResult<()> {

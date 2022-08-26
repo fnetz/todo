@@ -34,7 +34,7 @@ fn render_item(item: &TodoItem, list: &TodoList, indent: bool) {
         if indent {
             print!("   ");
         }
-        println!("       ` depends on: {}", item.format_depends(&list, true));
+        println!("       ` depends on: {}", item.format_depends(list, true));
     }
 }
 
