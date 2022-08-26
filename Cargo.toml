@@ -2,7 +2,7 @@
 name = "todo"
 version = "0.1.0"
 authors = ["Felix Solcher <felix.solcher@gmail.com>"]
-edition = "2018"
+edition = "2021"
 
 [dependencies]
 clap = "2.33.3"
